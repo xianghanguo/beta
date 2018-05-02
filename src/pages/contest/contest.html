@@ -1,0 +1,249 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <ion-title text-center>미남미녀</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding>
+  <!--
+  <ion-grid no-padding class="x-contest-top">
+    <ion-row text-center>
+      <ion-col col-12><div class="x-contest-status">후보모집중</div></ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col col-12><div class="x-contest-title">美男美女</div></ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col col-12><div class="x-contest-time">2月 19日 9時 ~ 2月 19日 18時</div></ion-col>
+    </ion-row>
+    <ion-row text-center [hidden]="currentProgress == 'join'">
+      <ion-segment class="x-contest-stage" mode="md" [(ngModel)]="currentGender" *ngIf="currentStage != 'join'">
+        <ion-segment-button value="female" (click) = "changeGender('female')" >남성</ion-segment-button>
+        <ion-segment-button value="male"(click) = "changeGender('male')" >여성</ion-segment-button>
+      </ion-segment>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding class="x-contest-center">
+    <ion-row>
+      <ion-col col-12>
+        <ion-slides spaceBetween="-120">
+          <ion-slide *ngFor="let candidate of candidatesByGender.candidates ;">
+            <ion-grid no-padding class="x-contest-minicard" (click)="openProfile(candidate)">
+              <ion-row>
+                <ion-col col-12>
+                  <div class="x-contest-minicard-detail">
+                      <img  class="x-contest-mini-photo" src="{{candidate.profileImg}}">
+                    <div class="x-contest-mini-profile">
+                      <div class="x-contest-mini-num" >후보 {{candidate.index+1}}</div>
+                      <div class="x-contest-mini-nickname">{{candidate.username}}</div>
+                      <div class="x-contest-mini-birth">{{candidate.birth}}</div>
+                      <div class="x-contest-mini-time"></div>
+                      <div class="x-contest-mini-btn">상세보기</div>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-segment class="x-contest-stage" mode="md" [(ngModel)]="contestProgress">
+          <ion-segment-button value="join" [hidden]="currentStage != 'join'">후보모집</ion-segment-button>
+          <ion-segment-button value="round_1" [hidden]="candidatesByGender.round_1.length == 0">1라운드</ion-segment-button>
+          <ion-segment-button value="round_2" [hidden]="candidatesByGender.round_2.length == 0">2라운드</ion-segment-button>
+          <ion-segment-button value="round_3" [hidden]="candidatesByGender.round_3.length == 0">3라운드</ion-segment-button>
+          <ion-segment-button value="final" [hidden]="currentStage != 'final'">최종결과</ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div [ngSwitch]="contestProgress">
+    <ion-grid no-padding class="x-contest-contents" *ngSwitchCase="'join'">
+      <ion-row>
+        <ion-col col-12 *ngIf="applicants && currentStage == 'join'">
+          <div class="x-contest-ready-icon"><ion-icon name="flaticon-clock"></ion-icon></div>
+          <div class="x-contest-ready-txt" >후보를 모집중입니다. <br/> ({{applicants.length}}명 지원중) </div>
+          <div class="x-contest-apply" (click)="openApply()" *ngIf="checkApplied(applicants) === 0">후보 지원</div>
+          <div class="x-contest-apply" (click)="cancelApply()" *ngIf="checkApplied(applicants) === 1">지원 완료</div>
+        </ion-col>
+        <ion-col col-12 *ngIf="currentStage != 'join'">
+          <div class="x-contest-ready-icon"><ion-icon name="flaticon-clock"></ion-icon></div>
+          <div class="x-contest-ready-txt" >지원이 종료되었습니다. 다음 컨테스트예정 시간은 오전 8시입니다. 남성{{lastContest.payload.val().numOfMale}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid no-padding class="x-contest-contents" *ngSwitchCase="'round_1'">
+      <ion-row class="x-contest-substage-content" *ngIf="candidatesByGender.round_1">
+        <ion-col col-12>
+          <ion-slides>
+            <ion-slide *ngFor="let candidate of candidatesByGender.round_1; let i = index;" >
+              <ion-grid no-padding >
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-match">그룹 {{i+1}}</div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-card">
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[0])"><img src="{{candidate[0].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[0].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[0].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[0].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[0].round_1}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[0], 1)" [hidden]="chuncked_round2.female.length > 0">투표하기</div>
+                    </div>
+                    <div class="x-contest-substage-card">
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[1])"><img src="{{candidate[1].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[1].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[1].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[1].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[1].round_1}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[1], 1)" [hidden]="chuncked_round2.female.length > 0">투표하기</div>
+                      </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+          
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid no-padding class="x-contest-contents" *ngSwitchCase="'round_2'">
+    
+      <ion-row class="x-contest-substage-content" *ngIf="candidatesByGender.round_2" >
+        <ion-col col-12>
+          <ion-slides >
+            <ion-slide *ngFor="let candidate of candidatesByGender.round_2; let i = index;" >
+              <ion-grid no-padding>
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-match">그룹 {{i+1}} </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-card">
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[0])"><img src="{{candidate[0].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[0].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[0].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[0].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[0].round_2}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[0], 2)" [hidden]="chuncked_round3.female.length > 0">투표하기</div>
+                    </div>
+                    <div class="x-contest-substage-card" >
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[1])"><img src="{{candidate[1].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[1].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[1].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[1].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[1].round_2}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[1], 2)" [hidden]="chuncked_round3.female.length > 0">투표하기</div>
+                      </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+          
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid no-padding class="x-contest-contents" *ngSwitchCase="'round_3'">
+      <ion-row class="x-contest-substage-content" *ngIf="candidatesByGender.round_3" >
+        <ion-col col-12>
+          <ion-slides >
+            <ion-slide *ngFor="let candidate of candidatesByGender.round_3; let i = index;" >
+              <ion-grid no-padding>
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-match">그룹 {{i+1}} </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-12>
+                    <div class="x-contest-substage-card">
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[0])"><img src="{{candidate[0].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[0].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[0].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[0].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[0].round_3}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[0], 3)" [hidden]="champions.length > 0">투표하기</div>
+                    </div>
+                    <div class="x-contest-substage-card" >
+                      <div class="x-contest-substage-photo" (click)="openProfile(candidate[1])"><img src="{{candidate[1].profileImg}}"/></div>
+                      <div class="x-contest-substage-num">후보 {{candidate[1].index + 1}}</div>
+                      <div class="x-contest-substage-nickname">{{candidate[1].username}}</div>
+                      <div class="x-contest-substage-birth">{{candidate[1].birth}}</div>
+                      <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidate[1].round_3}}</div>
+                      <div class="x-contest-substage-btn" (click)="openVote(candidate[1], 3)" [hidden]="champions.length > 0">투표하기</div>
+                      </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+          
+          </ion-slides>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid no-padding class="x-contest-contents" *ngSwitchCase="'final'" >
+  
+    <ion-row class="x-contest-substage-content" *ngIf="candidatesByGender.final.length == 2" >
+      <ion-col col-12>
+        <ion-slides >
+          <ion-slide>
+            <ion-grid no-padding>
+              <ion-row>
+                <ion-col col-12>
+                  <div class="x-contest-substage-match">우승을 축하드립니다! </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <div class="x-contest-substage-card">
+                    <div class="x-contest-substage-photo" (click)="openProfile(candidatesByGender.final[0])"><img src="{{candidatesByGender.final[0].profileImg}}"/></div>
+                    <div class="x-contest-substage-num" *ngIf="candidatesByGender.final[0].gender == 'male'"> 남성 우승 </div>
+                    <div class="x-contest-substage-num" *ngIf="candidatesByGender.final[0].gender == 'female'"> 여성 우승 </div>
+                    <div class="x-contest-substage-nickname">{{candidatesByGender.final[0].username}}</div>
+                    <div class="x-contest-substage-birth">{{candidatesByGender.final[0].birth}}</div>
+                    <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidatesByGender.final[0].total}}</div>
+                    <div class="x-contest-substage-btn" (click)="openVote(candidatesByGender.final[0])" >쪽지보내기</div>
+                  </div>
+                  <div class="x-contest-substage-card">
+                    <div class="x-contest-substage-photo" (click)="openProfile(candidatesByGender.final[1])"><img src="{{candidatesByGender.final[1].profileImg}}"/></div>
+                    <div class="x-contest-substage-num" *ngIf="candidatesByGender.final[1].gender == 'male'"> 남성 우승 </div>
+                    <div class="x-contest-substage-num" *ngIf="candidatesByGender.final[1].gender == 'female'"> 여성 우승 </div>
+                    <div class="x-contest-substage-nickname">{{candidatesByGender.final[1].username}}</div>
+                    <div class="x-contest-substage-birth">{{candidatesByGender.final[1].birth}}</div>
+                    <div class="x-contest-substage-hearts"><ion-icon name="flaticon-hearts"></ion-icon>&nbsp;{{candidatesByGender.final[1].total}}</div>
+                    <div class="x-contest-substage-btn" (click)="openVote(candidatesByGender.final[1])" >쪽지보내기</div>
+                    </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+  
+    
+  </div>
+  -->
+  <div class="contest-ad">
+    <div class="contest-ad-img">
+      <img src="assets/imgs/ad.jpg" style="width:100vw;">
+    </div>
+    <div class="contest-ad-btn">
+      <button ion-button>후보 지원하기</button>
+    </div>
+  </div>
+  
+</ion-content>

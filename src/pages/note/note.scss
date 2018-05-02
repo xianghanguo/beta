@@ -1,0 +1,16 @@
+page-note {
+    .x-note-title{
+        width:100vw;height:fit-content;padding:3vw;font-size:4vw;color:map-get($colors,x-gray-category);background-color:map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-skyblue-line);
+    }
+    .x-note-list {margin-bottom:3vw;}
+    .x-note-row {padding:2vw 3vw 2vw 3vw;height:fit-content;width:100vw;background-color:map-get($colors,x-white);border-bottom:1px solid map-get($colors,x-gray-bg);}
+    .x-note-info {width:94vw;height:fit-content;}
+    .x-note-user {float:left;width:fit-content;height:fit-content; img {width:13vw;height:13vw;border-radius:6.5vw;} margin-right:2vw;}
+    .x-note-nickname {float:left;width:78vw;height:fit-content;color:map-get($colors,x-gray-dark);font-size:3.5vw;margin-top:2vw;}
+    .x-note-introduce {float:left;width:60vw;height:fit-content;padding:1vw;color:map-get($colors,x-gray-count);font-size:3vw;margin-top:1vw;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+
+    ion-content{
+        background-color:map-get($colors,x-gray-bg) !important;
+    }
+}

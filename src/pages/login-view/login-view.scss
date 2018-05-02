@@ -1,0 +1,15 @@
+page-login-view {
+    .no-scroll .scroll-content{
+        overflow: hidden;
+        background-color:map-get($colors,x-gray-bg);
+    }
+    .x-login-intro { margin-top:6vw; }
+    .x-login-intro-text-row { height:fit-content;}
+    .x-login-title-text-row { height:fit-content;font-size:3vw;color:map-get($colors,x-mint);padding-bottom:4vw;}
+    .x-login-intro-input { border-left:3px solid map-get($colors,x-mint);background-color:map-get($colors,x-white);height:10vw;margin:0 6vw 4vw 6vw;width:63vw;color:map-get($colors,x-gray-category);font-size:3.5vw;padding-top:3vw;}
+    .x-login-intro-btn-row { height:fit-content; align-items:center;}
+    .x-login-intro-btn { height:10vw; width:63vw; box-shadow:none!important;border:none!important;background-color:map-get($colors,x-chat);color:map-get($colors,x-white);font-size:3.5vw;margin:0 0 3vw 0;}
+    .button-md.activated {
+        background-color:rgba(255,255,255,0.4) !important;
+    }
+}

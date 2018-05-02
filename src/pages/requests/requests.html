@@ -1,0 +1,61 @@
+
+<ion-header no-border>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-title color="top-text">대화 목록</ion-title>
+    <ion-buttons end></ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+            </ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="users">
+
+    <ion-item-group>
+        <ion-item-divider color="light">대화요청</ion-item-divider>
+        <ion-item *ngFor="let request of requestsReceived" tappable>
+            <ion-avatar item-left>
+                <img-loader src=" {{request.payload.val().profileImg}}" tappable ></img-loader>
+            </ion-avatar>
+
+            <span class="nickname">{{ request.payload.val().username }}</span>
+        <span class="distance">{{ request.payload.val().lastLogin | DateFormat }}</span><br>
+        <span class="introduce">{{ request.payload.val().bio }}</span>
+        <span class="conversation"  item-right><ion-icon name="flaticon-chat" color="x-mint" (click)="acceptFriendRequest(request)"></ion-icon></span>
+        </ion-item>
+        
+    </ion-item-group>
+
+
+    <ion-item-group>
+        <ion-item-divider color="light">사용자 대화방 <button item-right>최근접속순</button></ion-item-divider>
+        <ion-item *ngFor="let lastestUser of users | slice:0:usersToShow" tappable [hidden]="excludedIds.indexOf(lastestUser.key) != -1">
+            <ion-avatar item-left>
+                <img-loader src=" {{lastestUser.payload.val().profileImg}}" tappable ></img-loader>
+               
+            </ion-avatar>
+
+        <span class="nickname">{{ lastestUser.payload.val().username }}</span>
+        <span class="distance">{{ lastestUser.payload.val().lastLogin | DateFormat }}</span>
+        <span class="introduce">{{ lastestUser.payload.val().bio }}</span>
+      
+        <span class="memo" item-right><ion-icon name="flaticon-note-1" color="x-pink" (click)="presentAlert(0)"></ion-icon></span>
+        <span class="conversation"  item-right *ngIf="getRequestStatus(lastestUser) == 0" ><ion-icon name="flaticon-chat" color="x-mint"  (click)="presentAlert(1, lastestUser)"></ion-icon></span>
+        <span class="conversation"  item-right *ngIf="getRequestStatus(lastestUser) == 1" ><ion-icon name="close" color="x-mint"  (click)="cancelFriendRequest(lastestUser)"></ion-icon></span>
+        </ion-item>
+    </ion-item-group>
+   
+
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" [enabled]="users?.length > usersToShow">
+        <ion-infinite-scroll-content loadingSpinner="none"></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+</ion-content>

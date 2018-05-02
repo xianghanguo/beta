@@ -1,0 +1,107 @@
+<ion-header no-border class="feed-header">
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button><ion-icon name="flaticon-cross-1" color="x-mint"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>게시글보기</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="navCtrl.pop()"><ion-icon name="flaticon-cross-1" color="x-white"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="post" #content no-paddding>
+  <div *ngIf="post && post.title">
+    <ion-grid no-padding class="x-boardview-post">
+      <ion-row class="x-boardview-row">
+        <ion-col col-12>
+          <span class="x-boardview-category">[{{post.category}}]</span>
+          <span class="x-boardview-title">{{post.title}}</span>         
+        </ion-col>
+      </ion-row>
+      <ion-row class="x-boardview-row">
+        <ion-col col-12>
+          <div class="x-boardview-info" *ngIf="writer">
+            <div class="x-boardview-writer"><img src="{{writer.profileImg}}"/></div>
+            <div class="x-boardview-nickname">
+                {{writer.username}}
+                <div class="x-boardview-modify">
+                    <span  *ngIf="post.writer == userId" (click)="modifyPost(post)">{{ 'post.menu.modify' | translate }}</span>
+                    <span  *ngIf="post.writer == userId" (click)="deletePost(post)">{{ 'post.menu.delete' | translate }}</span>
+                </div>
+                
+            </div>
+            
+            <div class="x-boardview-time"><span class="x-boardview-ico"><ion-icon name="flaticon-clock"></ion-icon></span>&nbsp;{{post.date | DateFormat}}</div>
+            <div class="x-boardview-tags">{{post.tags}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="x-boardview-row-no-border">
+        <ion-col col-12>
+          <div class="x-boardview-post-photo">
+            <ion-slides pager *ngIf="post.images" no-padding> 
+              <ion-slide *ngFor="let images of post.images; let i = index; ">
+                <img-loader src ="{{images.url}}"  (click)="openGalleryModal(post.images, i)"></img-loader>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="x-boardview-row">
+        <ion-col col-12>
+          <div class="x-boardview-post-description" [innerHTML]="post.description"></div>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row class="x-boardview-row">
+        <ion-col col-12>
+          <div class="x-boardview-cnt">
+            <div class="x-boardview-view"><span class="x-boardview-ico"><ion-icon name="flaticon-medical"></ion-icon></span>&nbsp;{{ post.views }}</div>
+            <div class="x-boardview-like" (click)="likePost(postId)" *ngIf="checkPostLiked() === 0 && post.likes"><span class="x-boardview-ico"><ion-icon name="flaticon-hearts"></ion-icon></span>&nbsp;{{ post.likes.length }}</div>
+            <div class="x-boardview-like-on" (click)="dislikePost(postId, post)" *ngIf="checkPostLiked() === 1  && post.likes"><span class="x-boardview-ico"><ion-icon name="flaticon-hearts"></ion-icon></span>&nbsp;{{ post.likes.length }}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid no-padding class="x-boardview-comment" >
+      <ion-row class="x-boardview-row">
+        <ion-col col-12>
+          <div class="x-boardview-comment-title">
+            <span class="x-boardview-comment-ico"><ion-icon name="flaticon-interface"></ion-icon></span>&nbsp;이 글의 댓글</div>
+        </ion-col>
+      </ion-row>
+      <div >
+        <ion-row class="x-boardview-row" *ngFor="let comment of post.comment">
+          <ion-col col-12>
+            <div class="x-boardview-info">
+              <div class="x-boardview-writer"> <img-loader src ="{{comment.profileImg}}" ></img-loader></div>
+              <div class="x-boardview-nickname">{{comment.username}}</div>
+              <span  *ngIf="comment.writer == userId" class="x-boardview-modify" (click)="deleteComment(comment)">{{ 'post.menu.delete' | translate }}</span>
+              <div class="x-boardview-time"><span class="x-boardview-ico"><ion-icon name="flaticon-clock"></ion-icon></span>&nbsp;{{comment.date | DateFormat}}</div>
+              <!-- <div class="x-boardview-comment-like" (click)="likeComment(comment.key)" *ngIf="checkCommentsLiked(comment) === 0 && comment.likes"><span class="x-boardview-ico"><ion-icon name="flaticon-hearts"></ion-icon></span>&nbsp;{{ comment.likes.length }}</div>
+              <div class="x-boardview-comment-like-on" (click)="dislikeComment(comment.key, comment)" *ngIf="checkCommentsLiked(comment) === 1 && comment.likes"><span class="x-boardview-ico"><ion-icon name="flaticon-hearts"></ion-icon></span>&nbsp;{{ comment.likes.length }}</div> -->
+              <div class="x-boardview-comment-description" [innerHTML]="comment.description"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>  
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer class ="post && post.title" no-border no-padding >
+  <ion-toolbar class="x-boardview-comment-write" no-padding color="x-white">
+    <div class="x-boardview-comment-txt">
+      <ion-input type="text" class="x-boardview-comment-input" placeholder="댓글을 남겨주세요" [(ngModel)]="comment"></ion-input>
+    </div>
+    <div class="x-boardview-comment-btn">
+      <button ion-button class="x-boardview-comment-submit" (click)="writeComment()">작성</button>
+    </div>
+  </ion-toolbar>
+
+</ion-footer>

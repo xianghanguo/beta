@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-navbar color="x-mint">
+        <ion-buttons left>
+            <button ion-button><ion-icon name="flaticon-cross-1" color="x-mint"></ion-icon></button>
+          </ion-buttons>
+      <ion-title *ngIf="user"><b>{{ user.username }} </b></ion-title>
+      <ion-buttons end>
+          <button ion-button (click)="navCtrl.pop()"><ion-icon name="flaticon-cross-1" color="x-white"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <div *ngIf="user">
+        <div class="profile" *ngIf="user" text-center>
+            <img-loader src=" {{user.profileImg}}" tappable (click)="openGalleryModal(user)"></img-loader>
+            
+        </div>
+     
+        <ion-list no-lines no-margin>
+
+             <ion-list-header no-margin>
+              <b>User Profiles</b>
+             </ion-list-header>
+            <ion-item no-lines margin-bottom>
+              <ion-label floating color="primary">username</ion-label>
+              <ion-input  type="text" readonly [(ngModel)] = "user.username"></ion-input>
+            </ion-item>
+
+            <ion-item no-lines margin-bottom>
+                <ion-label floating color="primary">gender</ion-label>
+                <ion-input  type="text" readonly [(ngModel)] = "user.gender"></ion-input>
+            </ion-item>
+
+            <ion-item no-lines margin-bottom>
+                <ion-label floating color="primary">birth</ion-label>
+                <ion-input  type="text" readonly [(ngModel)] = "user.birth"></ion-input>
+            </ion-item>
+
+            <ion-item no-lines margin-bottom class="textarea">
+                <ion-label floating color="primary">about</ion-label>
+                <ion-textarea type="text" readonly [(ngModel)] = "user.bio" fz-elastic rows="3" ></ion-textarea>
+            </ion-item>
+            
+          </ion-list>
+        
+   
+
+
+<!-- 
+      <ion-item class="profile" no-lines>
+      
+        <h2 text-uppercase>{{ user.username }} </h2>
+        <p text-lowercase *ngIf="getRequestStatus(user) == 0 || getRequestStatus(user) == 3 || getRequestStatus(user) == -1">{{ user.username }}</p>
+        <p text-lowercase *ngIf="getRequestStatus(user) == 1">{{ 'contact.request.sent' | translate }}</p>
+        <p text-lowercase *ngIf="getRequestStatus(user) == 2">{{ 'contact.request.received' | translate }}</p>
+        <button ion-button item-end (click)="sendRequest(user); $event.stopPropagation();" *ngIf="getRequestStatus(user) == 0" ><ion-icon name="icon-add-user"></ion-icon></button>
+        <button ion-button item-end color="dark" (click)="cancelRequest(user.userId); $event.stopPropagation();" *ngIf="getRequestStatus(user) == 1"><ion-icon name="icon-close"></ion-icon></button>
+        <button ion-button item-end color="dark" *ngIf="getRequestStatus(user) == 2" (click)="rejectRequest(user.userId); $event.stopPropagation();" ><ion-icon name="icon-close"></ion-icon></button>
+        <button ion-button item-end *ngIf="getRequestStatus(user) == 2" (click)="acceptRequest(user); $event.stopPropagation();" ><ion-icon name="icon-check"></ion-icon></button>
+        <button ion-button item-end (click)="message(user.userId); $event.stopPropagation();" *ngIf="getRequestStatus(user) == 3"><ion-icon name="icon-message"></ion-icon></button>
+      </ion-item>
+      <ion-list no-margin>
+        <ion-list-header>
+          <b>{{ 'profile.about' | translate }}</b>
+        </ion-list-header>
+        <p class="bio">{{ user.bio }}</p>
+      </ion-list> -->
+      <!-- <ion-list margin-top *ngIf="user.contacts && user.contacts.length > 0">
+        <ion-list-header>
+          <b>{{ 'profile.contacts' | translate }}</b>
+        </ion-list-header>
+        <ion-item no-lines *ngFor="let user of contacts" tappable (click)="setUser(user.userId)">
+          <ion-avatar item-start>
+            <img-loader [src]="user.photo"></img-loader>
+          </ion-avatar>
+          <h2 text-uppercase>{{ user.firstName }} {{ user.lastName }}</h2>
+          <p text-lowercase>{{ user.username }}</p>
+        </ion-item>
+      </ion-list> -->
+    </div>
+
+
+    
+
+  </ion-content>
+  

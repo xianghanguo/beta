@@ -1,0 +1,152 @@
+<ion-header no-border class="feed-header">
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button><ion-icon name="flaticon-cross-1" color="x-mint"></ion-icon></button>
+    </ion-buttons>
+    <ion-title *ngIf="menu">{{menu.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="navCtrl.pop()"><ion-icon name="flaticon-cross-1" color="x-white"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding #content class="community">
+
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+      </ion-refresher-content>
+  </ion-refresher>
+
+
+
+  <ion-segment class="x-category" color="x-white" mode="md" *ngIf="menu && menu.category.length > 1" [(ngModel)]="category.name">
+    <ion-segment-button class="x-category-btn" *ngFor="let category of menu.category; let i = index" value="{{category.name}}" (ionSelect)="getCategory(i)"> {{category.name}}</ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="menu">
+    <ion-grid no-padding>
+      <ion-row class="x-search">
+        <ion-col col-12>
+          <div class="x-search-box">
+            <div class="x-search-left">
+              <select class="x-search-select">
+                <ng-container >
+                  <option >전체</option>
+                  <option >제목</option>
+                  <option >내용</option>
+                  <option >작성자</option>
+                </ng-container>
+              </select>
+            </div>
+            <div class="x-search-center"><ion-input type="text" class="x-search-input"></ion-input></div>
+            <div class="x-search-right">
+              <button ion-button class="x-search-btn"><ion-icon name="flaticon-search-1" color="x-white"></ion-icon></button>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+   
+  <div [ngSwitch]="category.type">
+    <ion-grid class="x-list" no-padding *ngSwitchCase="'normal'" >
+      <!-- <ion-grid no-padding *ngIf="category.name == 'FREE'" >
+        <ion-row class="x-list-title">
+          <ion-col col-12>인기글</ion-col>
+        </ion-row>
+        <ion-row class="x-list-row" (click)="openPost()">
+          <ion-col col-12 class="x-list-col">
+            <span class="x-list-rank x-rank1"><ion-icon name="flaticon-gold-medal"></ion-icon></span>
+            <span class="x-list-label">免费主题&nbsp;&nbsp;</span>住在韩国是非常困难的. 给我一些建议. 住在韩国是非常困难的. 给我一些建议.</ion-col>
+        </ion-row>
+        <ion-row class="x-list-row" (click)="openPost()">
+          <ion-col col-12 class="x-list-col">
+            <span class="x-list-rank x-rank2"><ion-icon name="flaticon-silver-medal"></ion-icon></span>
+            <span class="x-list-label">免费主题&nbsp;&nbsp;</span>我卖了一次我使用过的香奈儿化妆品.</ion-col>
+        </ion-row>
+        <ion-row class="x-list-row" (click)="openPost()">
+          <ion-col col-12 class="x-list-col">
+            <span class="x-list-rank x-rank3"><ion-icon name="flaticon-bronze-medal"></ion-icon></span>
+            <span class="x-list-label">免费主题&nbsp;&nbsp;</span>我卖了一次我使用过的香奈儿化妆品.</ion-col>
+        </ion-row>
+        <ion-row class="x-list-row x-list-ctg">
+          <ion-col col-3 text-center>종합인기</ion-col>
+          <ion-col col-3 text-center>추천많은</ion-col>
+          <ion-col col-3 text-center>조회많은</ion-col>
+          <ion-col col-3 text-center>댓글많은</ion-col>
+        </ion-row>
+      </ion-grid> -->
+     
+      <ion-row class="x-list-title">
+        <ion-col col-12>{{ category.name }}</ion-col>
+      </ion-row>
+      
+      <ion-segment class="x-list-row x-list-ctg" color="dark" mode="md"  *ngFor="let i of category.rows" [(ngModel)]="category.selectedOption" >
+          <ng-container *ngFor="let option of category.option  | slice:(i*segmentsPerRow):(i+1)*segmentsPerRow">
+          <ion-segment-button class="x-category-btn" value="{{option}}" (ionSelect)="setCategoryOption(category, option)"> {{option}}</ion-segment-button>
+          </ng-container>
+      </ion-segment>
+    
+      <div *ngFor="let post of posts.get(category.name)">
+        <ion-row class="x-list-row"  (click)="openPost(menu, post.key)">
+          <ion-col col-12 class="x-list-col">
+            <span class="x-list-label">{{post.payload.val().category}}</span>&nbsp;&nbsp;{{post.payload.val().title}}&nbsp;
+            <span class="x-list-ico"><ion-icon name="flaticon-interface"></ion-icon></span>&nbsp;<span class="x-list-count">{{post.payload.val().comments}}</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+
+    
+    <div class="x-photolist-container" *ngSwitchCase="'trade'">
+        
+      <div class="x-photolist-title" >{{ category.name }}</div>
+      <ion-segment  color="dark" mode="md"  *ngFor="let i of category.rows" [(ngModel)]="category.selectedOption" >
+          <ng-container *ngFor="let option of category.option  | slice:(i*segmentsPerRow):(i+1)*segmentsPerRow">
+          <ion-segment-button class="x-category-btn" value="{{option}}" (ionSelect)="setCategoryOption(category, option)"> {{option}}</ion-segment-button>
+          </ng-container>
+      </ion-segment>
+      <div *ngFor="let post of posts.get(category.name)">
+        <div class="x-photolist"  (click)="openPost(menu, post.key)">
+          <div class="x-photolist-left"><img src="assets/imgs/user_001.jpg"></div>
+          <div class="x-photolist-right">
+            <div class="x-photolist-contents"><span class="x-photolist-category">{{post.payload.val().option}}&nbsp;&nbsp;</span>{{ post.payload.val().title }}</div>
+            <div class="x-photolist-info-date"><ion-icon name="flaticon-clock" class="x-photolist-info-icon"></ion-icon>&nbsp;{{ post.payload.val().date | DateFormat }}</div>
+            <div class="x-photolist-info-comment"><ion-icon name="flaticon-interface" class="x-photolist-info-icon"></ion-icon>&nbsp;{{post.payload.val().comments}}</div>
+            <div class="x-photolist-info-view"><ion-icon name="flaticon-medical" class="x-photolist-info-icon"></ion-icon>&nbsp;{{post.payload.val().views}}</div>
+          </div>
+        </div>  
+      </div>
+    </div>
+    
+    
+    <ion-grid class="x-list" no-padding *ngSwitchCase="'photo'">
+      <ion-row class="x-list-title">
+        <ion-col col-12>구인구직 목록</ion-col>
+      </ion-row>
+      <div *ngFor="let post of posts.get(category.name )">
+        <ion-row class="x-list-row"  (click)="openPost(menu, post.key)">
+          <ion-col col-12 class="x-list-col">
+            <span class="x-list-label">{{post.payload.val().category}}</span>&nbsp;&nbsp;{{post.payload.val().title}}&nbsp;
+            <span class="x-list-ico"><ion-icon name="flaticon-interface"></ion-icon></span>&nbsp;<span class="x-list-count">{{post.payload.val().comments}}</span>
+          </ion-col>
+        </ion-row>
+      </div>  
+    </ion-grid> 
+    
+
+  </div>
+      
+  </div>
+
+  <ion-fab class="x-float-button" >
+      <button ion-fab color="x-mint" (click)="writePost();"><ion-icon name="flaticon-edit" color="x-white"></ion-icon></button>
+  </ion-fab>
+    
+</ion-content>
+  

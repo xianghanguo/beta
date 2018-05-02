@@ -1,0 +1,16 @@
+page-verification {
+    .x-verification{
+        background-color:map-get($colors,x-gray-bg);
+        height:100vh;
+    }
+    .x-verification-title{
+        padding:5vw 0;
+        color:map-get($colors,x-gray-dark);
+        text-align:center;
+        width:100vw;
+        font-size:4vw;
+    }
+    .label .label-md {
+        font-size:4vw !important;
+    }
+}

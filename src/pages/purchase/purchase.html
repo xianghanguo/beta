@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      PURCHASE
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf ="user">
+  나의 하트수 : {{ user.payload.val().heart }}
+  <button ion-button full (click)="purchase()" *ngFor="let product of productsToShow">{{product.title}}</button>
+</div>
+</ion-content>

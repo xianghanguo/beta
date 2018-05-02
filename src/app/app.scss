@@ -1,0 +1,257 @@
+//hide scrollbar
+::-webkit-scrollbar{ display:none; }
+
+
+// SPLASH //
+.splash_initial {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: map-get($colors,x-mint);
+}
+
+.spinner_initial {
+    width: 22vw;
+    height: 22vw;
+    background-color:#ffffff;
+
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+0% { -webkit-transform: perspective(120px) }
+50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+} 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+} 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+}
+}
+
+// 하단 탭 색상 조절 //
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {color: map-get($colors,x-mint) !important;}
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {padding:2px;color:map-get($colors,x-mint)!important;font-size:32px;}
+.tabs-ios .tab-button[aria-selected=false] {color:map-get($colors,x-gray-category);}
+.tabs-md .tab-button[aria-selected=false] .tab-button-icon {padding:2px;color:map-get($colors,x-gray-category);font-size:32px;}
+.tabbar {border-top:1px solid map-get($colors,x-gray-line)!important;background-color:map-get($colors,x-white) !important;}
+// 전역 인풋텍스트 기본설정 초기화 //
+.text-input-md, .text-input-ios{padding:0 !important; margin:0  !important;}
+
+// BBS 상단 탭 디자인 //
+.x-category {background-color:map-get($colors,x-mint);}
+.x-category-btn {font-size:3.5vw !important;border-bottom:1px solid map-get($colors,x-skyblue-line)!important;}
+// 검색바 디자인 //
+.x-search {width:fit-content;height:fit-content;background-color:map-get($colors,x-white);margin:3vw;}
+.x-search-select {width:18vw;height:10vw;border:none;font-size:3vw;color:map-get($colors,x-gray-dark);background-color:map-get($colors,x-white);}
+.x-search-input {width:70vw!important;height:10vw!important;padding:2.5vw 2vw 0 2vw!important;font-size:3.5vw;color:map-get($colors,x-gray-dark);}
+.x-search-left,.x-search-center,.x-search-right {float:left;height:fit-content;border:1px solid map-get($colors,x-gray-line);}
+.x-search-left {width:20vw;padding:0 1vw 0 1vw; border-right:none;}
+.x-search-center {width:64vw;}
+.x-search-right {text-align:center;width:10vw;border-left:none;background-color:map-get($colors,x-mint)!important;}
+.x-search-btn {width:10vw !important;height:10vw!important;background-color:map-get($colors,x-mint)!important;color:map-get($colors,x-white)!important;
+    border:none;box-shadow:none;border-radius:0;margin:0 !important;padding:0 !important;}
+
+// 기본 BBS 디자인 //
+.x-list {width:100vw;padding:0 3vw 0 3vw !important;background-color:map-get($colors,x-white);margin-bottom:3vw;}
+.x-list-label{color:map-get($colors,x-mint);}
+.x-list-title{align-items:center;height:10vw;border-bottom:1px solid map-get($colors,x-skyblue-line);font-size:3.5vw;font-weight:bold;color:map-get($colors,x-gray-dark);}
+.x-list-title-more {font-size:3.5vw;font-weight:bold;color:map-get($colors,x-mint);}
+.x-list-row {align-items:center;height:10vw;border-bottom:1px solid map-get($colors,x-gray-line);font-size:3.5vw;color:map-get($colors,x-gray-dark);}
+.x-list-col {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.x-list-end {border-bottom:1px solid map-get($colors,x-skyblue-line);}
+.x-list-noctg {border:none;}
+.x-list-ctg {height:10vw;border:none;color:map-get($colors,x-gray-category);}
+.x-list-ico {font-size:2.5vw;color:map-get($colors,x-gray-count);}
+.x-list-count {font-size:3vw;color:map-get($colors,x-gray-count);}
+.x-list-rank {font-size:4vw; font-weight:bold;}
+
+// 앨범형 BBS 디자인 //
+.x-photolist-container { width:100vw;height:fit-content;background-color:map-get($colors,x-white);padding:0 3vw;}
+.x-photolist-title {width:94vw;height:10vw;padding-top:2.5vw;font-size:3.5vw;font-weight:bold;border-bottom:1px solid map-get($colors,x-skyblue-line);color:map-get($colors,x-gray-dark);}
+.x-photolist {width:94vw;height:25vw;padding:3vw 0;border-bottom:1px solid map-get($colors,x-gray-bg);}
+.x-photolist-left {float:left;width:18vw;height:18vw;border:1px solid map-get($colors,x-gray-bg);margin-right:3vw;}
+.x-photolist-right {float:left;width:fit-content;height:fit-content;}
+.x-photolist-contents {width:73vw;height:12vw;font-size:3.5vw;color:map-get($colors,x-gray-dark); overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}
+.x-photolist-category {color:map-get($colors,x-mint);}
+.x-photolist-info-icon {font-size:2.5vw;color:map-get($colors,x-gray-count);}
+.x-photolist-info-date {float:left;width:fit-content;height:6vw;font-size:3vw;color:map-get($colors,x-gray-count);}
+.x-photolist-info-view, .x-photolist-info-comment {float:right;width:fit-content;height:6vw;font-size:3vw;margin-left:3vw;color:map-get($colors,x-gray-count);}
+
+
+// BBS 플로팅버튼 //
+.x-float-button {right:5vw;bottom:5vh;}
+
+// BBS 순위 //
+.x-rank1 {color:map-get($colors,x-gold);}
+.x-rank2 {color:map-get($colors,x-silver);}
+.x-rank3 {color:map-get($colors,x-bronze);}
+
+// 일대일대화 리스트 디자인 //
+.x-chatmenu-explain {margin:3vw; color:map-get($colors,x-gray-dark);font-size:3vw;}
+.x-chatmenu { width:94vw;background-color:map-get($colors,x-white);border-left:3px solid map-get($colors,x-chat);border-bottom:1px solid map-get($colors,x-skyblue-line);padding:0 3vw 0 3vw; margin:0 0 3vw 3vw;}
+.x-chatmenu-icon { height:fit-content;color:map-get($colors,x-chat);font-size:10vw;font-weight:bold;margin-top:3vw;margin-bottom:1vw;}
+.x-chatmenu-title { height:fit-content;color:map-get($colors,x-gray-dark);font-size:3vw;font-weight:bold;margin-bottom:1vw;}
+.x-chatmenu-subtitle { height:fit-content;color:map-get($colors,x-gray-category);font-size:2.5vw; border-bottom:1px solid map-get($colors,x-gray-line);padding-bottom:2vw;}
+.x-chatmenu-button { height:8vw;box-shadow:none!important;border:none!important;background-color:map-get($colors,x-chat);color:map-get($colors,x-white);font-size:3vw;margin:3vw 0 3vw 0;}
+
+// 토너먼트 상세프로필 모달 //
+
+.x-login-view {
+    .modal-wrapper {
+        width:75vw;
+        height:63vw;
+        left: 12.5vw;
+        top:20% ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+.x-join-view {
+    .modal-wrapper {
+        width:75vw;
+        height:75vw;
+        left: 12.5vw;
+        top:20% ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+.x-edit-profile-view {
+    .modal-wrapper {
+        width:75vw;
+        height:100vw;
+        left: 12.5vw;
+        top:20% ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+
+.mini-modal {
+    .modal-wrapper {
+        width:75vw;
+        height:127vw;
+        left:12.5vw;
+        top:20vw ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+
+.chat-loading {
+    .modal-wrapper {
+        width:75vw;
+        height:50vw;
+        left: 12.5vw;
+        top:30% ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+.note-request {
+    .modal-wrapper {
+        width:75vw;
+        height:50vw;
+        left: 12.5vw;
+        top:60vw ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+.chat-msg {
+    .modal-wrapper {
+        width:75vw;
+        height:50vw;
+        left: 12.5vw;
+        top:60vw ;
+        position: absolute;
+        overflow: hidden;
+    }
+    ion-backdrop {
+        visibility: visible;
+    }
+}
+
+// BBS WRITE FAV BTN COLOR //
+
+// BBS NAV TITLE //
+ion-title {
+    text-align:center;
+}
+
+// 전역 item 효과제거 //
+
+.item-md.item-input.input-has-focus .item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  .list-md .item-input.input-has-focus:last-child {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .list-md .item-input.input-has-focus:last-child .item-inner {
+    box-shadow: none;
+  }
+  
+  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+    box-shadow: none;
+  }
+  
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+    
+  .button-md.activated, .button-ios.activated {
+    background-color:rgba(0,184,208,0.4) !important;
+    box-shadow:none !important;
+  }

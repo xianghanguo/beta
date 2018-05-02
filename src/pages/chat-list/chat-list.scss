@@ -1,0 +1,12 @@
+page-chat-list {
+    ion-item-options{
+        border-bottom:none !important;
+    }
+    ion-content {
+        background-color:map-get($colors,x-gray-bg) !important;
+    }
+    
+    .message-time {
+        font-size:2.5vw;
+    }
+}

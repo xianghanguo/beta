@@ -1,0 +1,7 @@
+<ion-tabs no-border id="tabs">
+  <ion-tab [root]="tab1Root" tabIcon="flaticon-home" ></ion-tab>
+  <ion-tab [root]="tab2Root" tabIcon="flaticon-chat" tabBadge="{{ getRequestsReceived() }}" tabBadgeStyle="x-orange"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="flaticon-envelope-1" tabBadge="{{ getUnreadMessages() }}" tabBadgeStyle="x-orange"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="flaticon-cup"></ion-tab>
+  <ion-tab [root]="tab5Root" tabIcon="flaticon-profile-3"></ion-tab>
+</ion-tabs>

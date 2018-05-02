@@ -1,0 +1,91 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="presentHeartHistory()" class="leftbtn"><ion-icon name="flaticon-notepad" color="x-white"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>하트 충전</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()"><ion-icon name="flaticon-cross-1" color="x-white"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row class="hc-havings">
+      <ion-col col-12 text-center>
+        <ion-icon name="flaticon-hearts" color="x-mint"></ion-icon>&nbsp;<span class="hc-havings-count">9999</span><br>
+      </ion-col>
+    </ion-row>
+    <ion-row class="hc-havings-subtitle">
+      <ion-col col-12 text-center>현재 보유 하트</ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--보류
+  <ion-grid no-padding>
+    <ion-row class="hc-row-type">
+      <ion-col col-12 text-center>구독상품</ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-like" color="x-pink"></ion-icon></ion-col>
+      <ion-col col-5 text-left>월 400개</ion-col>
+      <ion-col col-3 text-center>30% 할인</ion-col>
+      <ion-col col-3 text-center>자세히 보기</ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-like" color="x-pink"></ion-icon></ion-col>
+      <ion-col col-5 text-left>월 1840개</ion-col>
+      <ion-col col-3 text-center>40% 할인</ion-col>
+      <ion-col col-3 text-center>자세히 보기</ion-col>
+    </ion-row>
+  </ion-grid>
+  -->
+  <ion-grid no-padding>
+    <ion-row class="hc-row-type">
+      <ion-col col-12 text-center>일반상품</ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-hearts" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-5>70개 (+10개)</ion-col>
+      <ion-col col-3 text-center>9,000원</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>구매하기</button></ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-hearts" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-5>100개 (+15개)</ion-col>
+      <ion-col col-3 text-center>13,500원</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>구매하기</button></ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-hearts" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-5>300개 (+30개)</ion-col>
+      <ion-col col-3 text-center>39,000원</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>구매하기</button></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding>
+    <ion-row class="hc-row-type">
+      <ion-col col-12 text-center>무료하트</ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-exclamation" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-8>충전소 애드싱크</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>충전하기</button></ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-exclamation" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-8>충전소 티앤케이</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>충전하기</button></ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-exclamation" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-8>충전소 파이버</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>충전하기</button></ion-col>
+    </ion-row>
+    <ion-row class="hc-row-detail">
+      <ion-col col-1 text-center><ion-icon name="flaticon-exclamation" color="x-mint"></ion-icon></ion-col>
+      <ion-col col-8>충전소 나스</ion-col>
+      <ion-col col-3 text-center><button ion-button class="hc-btn-buy" color="x-white" outline>충전하기</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

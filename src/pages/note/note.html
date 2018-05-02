@@ -1,0 +1,42 @@
+<ion-header no-border class="feed-header">
+    <ion-navbar color="x-mint" hideBackButton>
+        <ion-buttons left>
+            <button ion-button><ion-icon name="flaticon-cross-1" color="x-mint"></ion-icon></button>
+        </ion-buttons>
+        <ion-title>쪽지함</ion-title>
+        <ion-buttons end>
+            <button ion-button><ion-icon name="flaticon-cross-1" color="x-mint"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+    <div class="x-note-title">내가 보낸 쪽지</div>
+    <ion-grid no-padding class="x-note-list">
+        <div *ngFor="let noteUser of noteList">
+            <ion-row class="x-note-row" *ngIf="noteUser.payload.val().type=='send'" (click)="viewNote(noteUser.payload.val().roomKey)">
+                <ion-col col-12>
+                    <div class="x-note-info">
+                        <div class="x-note-user"><img src="{{noteUser.profileImg}}"/></div>
+                        <div class="x-note-nickname">{{noteUser.nickname}}</div>
+                        <div class="x-note-introduce">대화 마지막내용</div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+    <div class="x-note-title">내가 받은 쪽지</div>
+    <ion-grid no-padding class="x-note-list">
+        <div *ngFor="let noteUser of noteList">
+            <ion-row class="x-note-row" *ngIf="noteUser.payload.val().type=='receive'" (click)="viewNote(noteUser.payload.val().roomKey)">
+                <ion-col col-12>
+                    <div class="x-note-info">
+                        <div class="x-note-user"><img src="{{noteUser.profileImg}}"/></div>
+                        <div class="x-note-nickname">{{noteUser.nickname}}</div>
+                        <div class="x-note-introduce">대화 마지막내용</div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>

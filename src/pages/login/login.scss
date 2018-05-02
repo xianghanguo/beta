@@ -1,0 +1,42 @@
+page-login {
+    ion-content {
+        background-color: map-get($colors,x-mint) !important;
+    }
+    .x-logo {
+        width:100vw;
+        padding:15vw 28vw 0vw 28vw;
+        margin:20vw 0 25vw 0;
+    }
+    .x-btn-area {
+        width:100vw;
+        height:fit-content;
+        text-align: center;
+        margin-bottom:5vw;
+    } 
+    .x-btn {
+        box-shadow:none;
+        width:74vw;
+        height:10vw;
+        border-left:3px solid map-get($colors,x-white);
+        border-radius:0vw;
+        background-color:rgba(255,255,255,0.4);
+        color:map-get($colors,x-white);
+        padding:3vw 5vw 3vw 5vw;
+        font-size:4vw;
+    }
+    .x-main-footer {
+        position: absolute;
+        bottom:10vw;
+        height:10vw;
+        width:100vw;
+        color:map-get($colors,x-white);
+        font-size:3vw;
+        text-align:center;
+        background-color:rgba(255,255,255,0.4);
+        padding:3vw 0 3vw 0;
+    }
+    .button-md.activated {
+        background-color:rgba(255,255,255,0.8) !important;
+        box-shadow:none !important;
+    }
+}

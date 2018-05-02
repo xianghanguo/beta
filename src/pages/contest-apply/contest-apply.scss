@@ -1,0 +1,30 @@
+page-contest-apply {
+    .x-contest-apply {width:75vw; height:fit-content; background-color:map-get($colors,x-white); border:1px solid map-get($colors,x-gray-bg);}
+    .x-contest-apply-title {margin:2vw;background-color:map-get($colors,x-gray-bg);border-radius:1vw;color:map-get($colors,x-gray-dark);font-size:3.5vw;padding:1vw;height:fit-content;}
+    .x-contest-apply-explanation {color:map-get($colors,x-gray-light);font-size:3vw;}
+    .x-contest-apply-center {align-items: center;width:71vw;height:fit-content;margin:0 2vw 2vw 2vw;padding-bottom:2vw;border-bottom:1px solid map-get($colors,x-gray-bg);}
+    .x-contest-apply-introduce-label {color:map-get($colors,x-mint);font-size:3vw;}
+    .x-contest-apply-introduce {color:map-get($colors,x-gray-light);font-size:3vw;}
+    .x-contest-apply-story {color:map-get($colors,x-gray-light);font-size:3vw;width:71vw;height:10vw;}
+    .x-contest-apply-tags {font-size:3vw;color:map-get($colors,x-mint);}
+    .x-contest-apply-bottom {margin-left:2vw;width:71vw;height:fit-content;}
+    .x-contest-apply-photo {
+        padding:2vw;
+    }
+    .x-contest-apply-btn {
+        position:absolute;
+        top:2vw;
+        right:0vw;
+        text-align:center;
+        padding:2.5vw;
+        border:1px solid map-get($colors,x-mint);
+        background-color: map-get($colors,x-mint);
+        color:map-get($colors,x-white);
+        font-size:4vw;
+        width:16vw;
+        height:10vw;
+    }
+    .toolbar-background-md, .toolbar-background-ios {
+        background-color:map-get($colors,x-white) !important;
+    }
+}

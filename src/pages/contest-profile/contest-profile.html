@@ -1,0 +1,39 @@
+<ion-content no-padding>
+  <ion-grid no-padding class="x-contest-profile" *ngIf="candidate">
+    <ion-row class="x-contest-profile-top">
+      <ion-col col-12>
+        <div class="x-contest-profile-num">{{candidate.index + 1 }}</div>
+        <div class="x-contest-profile-close"><ion-icon name="flaticon-cross-1" (click)="closeProfile()"></ion-icon></div>
+        <img src="{{candidate.profileImg}}" class="x-contest-profile-photo">
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-profile-title">
+      <ion-col col-12 text-center>후보자 프로필</ion-col>
+    </ion-row>
+    <ion-row class="x-contest-profile-center">
+      <ion-col col-4 text-center>
+        <span class="x-contest-profile-introduce-label">닉네임</span><br>
+        <span class="x-contest-profile-introduce">{{candidate.username}}</span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span class="x-contest-profile-introduce-label">생년월일</span><br>
+        <span class="x-contest-profile-introduce">{{candidate.birth}}</span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span class="x-contest-profile-introduce-label">거주지역</span><br>
+        <span class="x-contest-profile-introduce">{{candidate.contest.place}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-profile-center">
+      <ion-col col-12 text-center>
+        <span class="x-contest-profile-introduce-label">하고싶은말</span><br>
+        <span class="x-contest-profile-introduce">{{candidate.contest.speech}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-profile-bottom">
+      <ion-col col-12 text-center>
+        <span class="x-contest-profile-tags">{{candidate.contest.tag}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

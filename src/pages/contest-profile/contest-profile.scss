@@ -1,0 +1,13 @@
+page-contest-profile {
+    .x-contest-profile {width:75vw; height:fit-content; background-color:map-get($colors,x-white); border:1px solid map-get($colors,x-gray-bg);}
+    .x-contest-profile-top {width:75vw; height:75vw; padding:2vw;}
+    .x-contest-profile-close {position:absolute;right:2vw;top:2vw;font-size:5vw;color:map-get($colors,x-white);}
+    .x-contest-profile-photo {width:71vw;height:71vw;}
+    .x-contest-profile-num {position:absolute;text-align:center;padding-top:2.5vw;top:2vw;left:2vw;width:12vw;height:12vw;border-radius:7vw;color:map-get($colors,x-white);background-color: map-get($colors,x-mint);font-size:6vw;}
+    .x-contest-profile-title {margin:0 2vw 2vw 2vw;background-color:map-get($colors,x-gray-bg);border-radius:1vw;color:map-get($colors,x-gray-dark);font-size:3.5vw;padding:1vw;height:fit-content;}
+    .x-contest-profile-center {align-items: center;width:71vw;height:fit-content;margin:0 2vw 2vw 2vw;padding-bottom:2vw;border-bottom:1px solid map-get($colors,x-gray-bg);}
+    .x-contest-profile-introduce-label {color:map-get($colors,x-mint);font-size:3vw;}
+    .x-contest-profile-introduce {color:map-get($colors,x-gray-light);font-size:3vw;}
+    .x-contest-profile-tags {font-size:3vw;color:map-get($colors,x-mint);}
+    .x-contest-profile-bottom { padding:0 2vw 2vw 0;}
+}

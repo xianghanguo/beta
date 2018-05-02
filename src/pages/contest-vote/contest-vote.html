@@ -1,0 +1,63 @@
+<ion-content no-padding>
+  <ion-grid no-padding class="x-contest-vote" *ngIf="candidate">
+    <ion-row class="x-contest-vote-top">
+      <ion-col col-6>
+        <img src="{{ candidate.profileImg }}" class="x-contest-vote-photo">
+      </ion-col>
+      <ion-col col-6 text-right>
+        <div class="x-contest-vote-info">
+          <div class="x-contest-vote-close"><ion-icon name="flaticon-cross-1" (click)="closeVote()"></ion-icon></div>
+          <div class="x-contest-vote-num">후보 {{ candidate.index+1 }}</div>
+          <div class="x-contest-vote-nickname">{{ candidate.username }}</div>
+          <div class="x-contest-vote-birth">{{ candidate.birth }}</div>
+          <div class="x-contest-vote-hearts"  [ngSwitch]="currentRound">
+            <ion-icon name="flaticon-hearts" *ngSwitchCase="'round_1'" class="x-contest-vote-hearts-icon">&nbsp;{{ candidate.round_1 }} </ion-icon>
+            <ion-icon name="flaticon-hearts" *ngSwitchCase="'round_2'" class="x-contest-vote-hearts-icon">&nbsp;{{ candidate.round_2 }} </ion-icon>
+            <ion-icon name="flaticon-hearts" *ngSwitchCase="'round_3'" class="x-contest-vote-hearts-icon">&nbsp;{{ candidate.round_3 }} </ion-icon>
+          </div>
+        </div>  
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-vote-title">
+      <ion-col col-12 text-center>후보자 투표현황 ({{voteList.length}}명 투표)</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding [ngSwitch]="currentRound">
+
+    <div *ngSwitchCase="'round_1'" >
+      <ion-row class="x-contest-vote-list" *ngFor="let vote of voteList; let i = index;">
+        <ion-col col-1><div class="x-contest-vote-rank">{{i+1}}</div></ion-col>
+        <ion-col col-4>{{vote.payload.val().username}}</ion-col>
+        <ion-col col-2 text-right>{{vote.payload.val().round_1}}</ion-col>
+        <ion-col col-5 text-right>2018.02.20 24:59</ion-col>
+      </ion-row>
+    </div>
+
+    <div *ngSwitchCase="'round_2'" >
+      <ion-row class="x-contest-vote-list" *ngFor="let vote of voteList; let i = index;">
+        <ion-col col-1><div class="x-contest-vote-rank">{{i+1}}</div></ion-col>
+        <ion-col col-4>{{vote.payload.val().username}}</ion-col>
+        <ion-col col-2 text-right>{{vote.payload.val().round_2}}</ion-col>
+        <ion-col col-5 text-right>2018.02.20 24:59</ion-col>
+      </ion-row>
+    </div>
+
+      <div *ngSwitchCase="'round_3'" >
+        <ion-row class="x-contest-vote-list" *ngFor="let vote of voteList; let i = index;">
+          <ion-col col-1><div class="x-contest-vote-rank">{{i+1}}</div></ion-col>
+          <ion-col col-4>{{vote.payload.val().username}}</ion-col>
+        <ion-col col-2 text-right>{{vote.payload.val().round_3}}</ion-col>
+        <ion-col col-5 text-right>2018.02.20 24:59</ion-col>
+        </ion-row>
+      </div>
+  </ion-grid>
+
+</ion-content>
+<ion-footer no-padding no-shadow no-border>
+  <ion-toolbar no-padding class="x-contest-vote-bottom">
+    <div class="x-contest-vote-value">10</div>
+    <div class="x-contest-vote-increase">+</div>
+    <div class="x-contest-vote-btn" (click)="vote()">투표</div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,51 @@
+<ion-content no-padding class="no-scroll">
+  <div *ngIf="viewType=='login'">
+    <form [formGroup]="loginForm">
+      <ion-grid no-padding class="x-login-intro">
+        <ion-row class="x-login-title-text-row">
+          <ion-col col-12 text-center >{{ loginText }}</ion-col>
+          </ion-row>
+        <ion-row class="x-login-intro-text-row">
+          <ion-col col-12 text-center>
+            <ion-input type="email" class="x-login-intro-input"  [placeholder]="translate.get('auth.form.email')" formControlName="email"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="x-login-intro-text-row" >
+          <ion-col col-12 text-center>
+            <ion-input type="password" class="x-login-intro-input" [placeholder]="translate.get('auth.form.password')" formControlName="password"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="x-login-intro-btn-row">
+            <ion-col col-12 text-center><button ion-button class="x-login-intro-btn" (click)="login()" >{{ 'auth.button.login' | translate }} </button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+  <div *ngIf="viewType=='join'">
+    <form [formGroup]="registerForm">
+      <ion-grid no-padding class="x-login-intro">
+        <ion-row class="x-login-title-text-row">
+            <ion-col col-12 text-center>{{registerText}}</ion-col>
+          </ion-row>
+        <ion-row class="x-login-intro-text-row">
+          <ion-col col-12 text-center>
+            <ion-input type="email" class="x-login-intro-input" [placeholder]="translate.get('auth.form.email')" formControlName="email"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="x-login-intro-text-row">
+          <ion-col col-12 text-center>
+            <ion-input type="password" class="x-login-intro-input" [placeholder]="translate.get('auth.form.password')" formControlName="password"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="x-login-intro-text-row">
+          <ion-col col-12 text-center>
+            <ion-input type="password" class="x-login-intro-input" [placeholder]="translate.get('auth.form.confirm')" formControlName="confirmPassword"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="x-login-intro-btn-row">
+            <ion-col col-12 text-center><button ion-button class="x-login-intro-btn" (click)="register()" [disabled]="!registerForm.valid">회원가입하기</button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,158 @@
+page-profile-user {
+    ion-navbar {
+        ion-buttons {
+          margin-left: 2vw;
+          ion-icon {
+            font-size: 2.4rem;
+          }
+        }
+      }
+  
+      .text-on-bottom > .button-inner {
+        flex-direction: column;
+      }
+      .heart-value {
+        font-size:2.5vw;
+      }
+      .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list-md .item-input.input-has-focus:last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list-md .item-input.input-has-focus:last-child .item-inner {
+        box-shadow: none;
+      }
+      
+      .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+        box-shadow: none;
+      }
+      
+      .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+      }
+      
+      .profile-no-lines {
+        border-bottom:none !important;
+      }
+      .profile_save_btn{
+        background-color:map-get($colors,x-mint);
+        border:none;
+        box-shadow:none;
+        color:map-get($colors,x-white);
+      }
+    
+      .profile_logout_btn {
+        background-color:map-get($colors,x-gray-category);
+        border:none;
+        box-shadow:none;
+        color:map-get($colors,x-white);
+  
+      }
+      .button-md.activated {
+        background-color:rgba(255,255,255,0.4) !important;
+        box-shadow:none !important;
+      }
+  
+      div.profile {
+        height: 20vh;
+        background: color($colors,x-gray-bg);
+        position: relative;
+        img {
+          border-radius: 100%;
+          max-height: 22vw;
+          max-width: 22vw;
+          width: 22vw;
+          height: 22vw;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        img.activated, img:active {
+          opacity: 0.75;
+        }
+      }
+      
+      .profile-bio {
+        padding-top:3vw !important;
+        height:20vw !important;
+        min-height:20vw !important;
+        border-bottom:none !important;
+      }
+      
+      
+      .list-header-md {
+        border-top:none !important;
+      }
+  
+  
+      div.toggle, div.form {
+        margin-top:2vw;
+        width: 100vw;
+        ion-list {
+          border-bottom:1px solid map-get($colors,x-gray-bg);
+          ion-list-header {
+            font-weight: bolder;
+            margin-left: 2vw;
+            font-size: 3.5vw;
+            border-bottom: none !important;
+          }
+          ion-item {
+            background: color($colors, light) !important;
+            border-bottom: none !important;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 3vw !important;
+            width: 88vw !important;
+            height: 8vw ;
+            ion-label {
+              margin-left: 2vw !important;
+            }
+            ion-toggle {
+              margin-right: 2vw !important;
+            }
+          }
+          div {
+            button {
+              margin-bottom:3vw;
+              color: color($colors, light);
+              font-size: 3.5vw;
+              width: 88vw;
+              height: 11vw;
+              border-radius: 0 !important;
+            }
+          }
+        }
+      }
+      .btns {
+        margin-top:3vw;
+      }
+      .android {
+        ion-textarea {
+          margin-left: 0 !important;
+        }
+      }
+}

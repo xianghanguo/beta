@@ -1,0 +1,130 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+@import "Flaticon";
+
+
+// Font Icon - Flaticon Definition //
+@include makeIcon(flaticon-key, '\f12c');    // LOGIN-KEY
+
+
+@include makeIcon(flaticon-home, '\f11f');    // TAB-HOME
+@include makeIcon(flaticon-chat, '\f182');    // TAB-CHAT
+@include makeIcon(flaticon-envelope-1, '\f17d');  // TAB-MATCHING
+@include makeIcon(flaticon-cup, '\f153');   // TAB-TOURNAMENT
+@include makeIcon(flaticon-profile-3, '\f170');   // TAB-PROFILE
+
+@include makeIcon(flaticon-mark-1, '\f123');   // NAV-MENU-VERTICAL
+
+@include makeIcon(flaticon-search-1, '\f12b');   // HOME-SEARCH
+@include makeIcon(flaticon-mark, '\f124');   // HOME-LIST MORE
+
+@include makeIcon(flaticon-cross-1, '\f119');   // BOARD-CLOSE
+@include makeIcon(flaticon-edit, '\f12d');   // BOARD-WRITE
+@include makeIcon(flaticon-gold-medal, '\f105');   // BOARD-RANK1
+@include makeIcon(flaticon-silver-medal, '\f104');   // BOARD-RANK2
+@include makeIcon(flaticon-bronze-medal, '\f103');   // BOARD-RANK3
+
+@include makeIcon(flaticon-medical, '\f161');   // BOARD-VIEWS
+@include makeIcon(flaticon-interface, '\f181');   // BOARD-COMMENTS
+@include makeIcon(flaticon-interface-7, '\f129');   // 휴지통
+@include makeIcon(flaticon-layers-1, '\f12f');   // BOARD-MENU1-BBS-TITLE//
+
+@include makeIcon(flaticon-shapes-1, '\f13f');   //게시판 댓글 싫어요 아이콘
+
+@include makeIcon(flaticon-user-4, '\f164');    //CHAT1
+@include makeIcon(flaticon-technology-1, '\f15c');  //CHAT2
+@include makeIcon(flaticon-network, '\f143');   //CHAT3
+@include makeIcon(flaticon-arrow, '\f122');   //대화방입장
+@include makeIcon(flaticon-exclamation, '\f149');   //대화방 상단설명 // 공지사항
+@include makeIcon(flaticon-like-1, '\f13e');   //하트
+
+@include makeIcon(flaticon-hearts, '\f14d');   //토너먼트 상단 하트아이콘 //게시판 댓글 좋아요 아이콘
+@include makeIcon(flaticon-clock, '\f15d');   //토너먼트 후보모집 :: 후보대기  //게시글 작성시간 아이콘
+
+@include makeIcon(flaticon-settings, '\f130');   //프로필::기본정보보기//프로필::환경설정
+@include makeIcon(flaticon-round, '\f148');   //프로필::고객센터
+@include makeIcon(flaticon-left-arrow, '\f197');   // 왼쪽화살표
+
+@include makeIcon(flaticon-user, '\f175');   //회원가입
+
+// Named Color Variables
+$colors: (
+  x-blue:     #0798f5,
+  x-mint:#00b8d0,
+  x-skyblue:  #39a7fd,
+  x-skyblue-line:#d0ebfc,
+  x-input-line:#dddddd,
+  x-white:    #ffffff,
+  x-gray-line:  #f6f6f6,
+  x-gray-bg:  #f6f6f6,
+  x-gray-light:#8b9ca4,
+  x-gray-dark:#222222,
+  x-gray-category:#8c9da4,
+  x-gray-count :#8f8f8f,
+  x-gray-vote:#f6fafd,
+  x-gray-vote-rank:#7f92a0,
+  x-chat:#00b9d1,
+  x-orange:#fe5842,
+  x-yellow:#fdc564,
+  x-mint-dark:#008b9c,
+  x-mint-middle:#73f2ff,
+  x-mint-light:#8ceaf6,
+
+  x-gold:#ffb219,
+  x-silver:#c1c1c1,
+  x-bronze:#cf9d6e,
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+$alert-md-title-font-size:4vw;
+
+$alert-md-radio-label-text-color:rgba(140,157,164,1);
+$alert-md-radio-label-text-color-checked:rgba(0,184,208,1);
+$alert-ios-radio-label-text-color:rgba(140,157,164,1);
+$alert-ios-radio-label-text-color-checked:rgba(0,184,208,1);
+
+$alert-md-radio-border-color-on:rgba(0,184,208,1);
+$alert-md-radio-border-color-off:rgba(140,157,164,1);
+
+$alert-md-button-text-color:rgba(0,184,208,1);
+$alert-ios-button-text-color:rgba(0,184,208,1);
+$alert-ios-button-font-size:4vw;
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

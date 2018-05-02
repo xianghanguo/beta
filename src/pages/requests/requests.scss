@@ -1,0 +1,40 @@
+page-requests {
+    .round {
+        border-radius: 100%;
+        padding:2vw;
+    }
+    .nickname {
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .introduce {
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    .distance {
+        font-size:2.5vw;
+        color:map-get($colors,x-mint);
+    }
+    .memo {
+        font-size:3vh;
+    }
+    .conversation {
+        font-size:3vh;
+    }
+    ion-col{
+        text-align:left;
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:10vh;
+        background-color: map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    ion-content{
+        background-color: map-get($colors,x-gray-bg) !important;
+    }
+    ion-item-group{
+        background-color: map-get($colors,x-white) !important;
+    }
+}

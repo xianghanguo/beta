@@ -1,0 +1,44 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <ion-title text-center>쪽지 리스트</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+
+    <div text-center class="empty" *ngIf="(conversations)?.length == 0">
+        <ion-icon name="icon-empty-02"></ion-icon>
+        <h2><b>{{ 'chats.main.empty.noconversation.title' | translate }}</b></h2>
+        <p>{{ 'chats.main.empty.noconversation.text' | translate }}</p>
+      </div>
+      <ion-list>
+        <ion-item-sliding *ngFor="let conversation of conversations  | chatsFilter">
+          <ion-item no-lines  tappable (click)="chat(conversation.conversationId)">
+            <ion-badge item-right color="danger">{{ getUnreadMessages(conversation.conversationId, conversation.messages) }}</ion-badge>
+            <ion-avatar item-start *ngIf="partners.get(conversation.conversationId)">
+                <img src="{{ partners.get(conversation.conversationId).payload.val().profileImg }}" >
+            </ion-avatar>
+            <h2 text-uppercase *ngIf="partners.get(conversation.conversationId)">
+              <span>{{ partners.get(conversation.conversationId).payload.val().username }}</span>
+              <span text-lowercase class="message-time">{{ getLastMessageDate(conversation.messages)  | DateFormat }}</span></h2>
+            <p text-wrap *ngIf="partners.get(conversation.conversationId)">{{ getLastMessage(conversation.messages) }}</p>
+
+          </ion-item>
+          
+          <ion-item-options side="right" text-center>
+            <button ion-button icon-only color="x-yellow" (click)="delete(conversation)">
+              <ion-icon name="flaticon-interface-7" color="x-white"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+      <!-- No conversations yet -->
+      <div text-center class="empty" *ngIf="!conversations">
+        <ion-icon name="icon-empty-03"></ion-icon>
+        <h2><b>{{ 'chats.main.empty.noconversations.title' | translate }}</b></h2>
+        <p>{{ 'chats.main.empty.noconversations.text' | translate }}</p>
+        <!-- <button ion-button color="dark" (click)="compose()" [disabled]="!network.online()"><b>{{ 'chats.main.empty.noconversations.button' | translate }}</b></button> -->
+      </div>
+
+</ion-content>

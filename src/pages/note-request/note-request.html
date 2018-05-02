@@ -1,0 +1,16 @@
+<ion-content no-padding class="chat-loading">
+  <ion-grid no-padding class="x-note">
+    <ion-row class="x-note-row">
+      <ion-col col-12 text-center>상대방에게 쪽지를 전송합니다. <br> 전송 시 90p가 차감됩니다.</ion-col>
+    </ion-row>
+    <ion-row class="x-note-text-row">
+      <ion-col col-12 text-center><ion-input type="text" class="x-note-input" [(ngModel)]="introduce"></ion-input></ion-col>
+    </ion-row>
+    <ion-row class="x-note-btn-row">
+        <ion-col col-12 text-center>
+          <button ion-button class="x-note-btn" (click)="noteRequestSubmit()">쪽지전송</button>
+          <button ion-button class="x-note-btn" (click)="noteRequestCancel()">전송취소</button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

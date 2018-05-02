@@ -1,0 +1,14 @@
+
+page-profile-create {
+    ion-content{background-color:map-get($colors,x-white);}
+    .profile {height:20vh;background:color($colors,x-gray-bg);position: relative;margin-bottom:3vw;}
+    .profile img {width:22vw;height:22vw;border-radius:11vw;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}
+    .profile img.activated,.profile img:active {opacity: 0.75;}
+    .profile-error {width:88vw;height:fit-content;font-size:3vw;color:map-get($colors,x-mint);padding:2vw 0;margin:0 auto;}
+    .form ion-list{width:88vw;margin:0 auto;}
+    .form ion-item{background-color:map-get($colors,x-gray-bg);margin-bottom:3vw;font-size:4vw;}
+    .form ion-item ion-textarea{padding:4vw 0;}
+    .profile-submit{width:88vw;margin:0 auto;text-align:center;}
+    .profile-submit button{width:88vw;border-radius:0;box-shadow:none;background-color:map-get($colors,x-mint);color:map-get($colors,x-white);font-size:4vw;}
+  }
+  

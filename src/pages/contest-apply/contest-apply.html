@@ -1,0 +1,71 @@
+<ion-content no-padding>
+  <ion-grid no-padding class="x-contest-profile">
+    <ion-row class="x-contest-apply-title">
+      <ion-col col-12 text-center>후보자 등록</ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-center">
+      <ion-col col-12 text-center>
+        <span class="x-contest-apply-explanation">
+          후보자 등록은 선착순으로 이루어 집니다.<br>
+          프로필 사진 세 장을 제출해 주세요.<br>
+          부정 등록을 막기 위하여 위챗 아이디가 필요합니다.<br>
+          관리자의 승인 후 후보로 등록됩니다.
+        </span><br>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-title">
+      <ion-col col-12 text-center>후보자 프로필</ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-center" *ngIf="user">
+      <ion-col col-4 text-center>
+        <span class="x-contest-apply-introduce-label">닉네임</span><br>
+        <span class="x-contest-apply-introduce">{{ user.username }}</span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span class="x-contest-apply-introduce-label">생년월일</span><br>
+        <span class="x-contest-apply-introduce">{{ user.birth }}</span>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <span class="x-contest-apply-introduce-label">거주지역</span><br>
+        <select class="x-contest-apply-introduce" [(ngModel)]="place">
+          <option>선택</option>
+          <option>서울</option>
+          <option>경기</option>
+          <option>강원</option>
+          <option>인천</option>
+          <option>경북</option>
+          <option>전북</option>
+          <option>경남</option>
+          <option>전남</option>
+        </select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-center">
+      <ion-col col-12 text-center>
+        <span class="x-contest-apply-introduce-label">하고싶은말</span><br>
+        <textarea class="x-contest-apply-story" [(ngModel)]="speech"></textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-center">
+      <ion-col col-12 text-center>
+        <span class="x-contest-apply-tags">대표태그</span><br>
+        <textarea class="x-contest-apply-story" [(ngModel)]="tag"></textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row class="x-contest-apply-bottom">
+      <ion-col col-12 text-center>
+        <span class="x-contest-apply-introduce-label">사진등록</span><br>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
+<!--x-const-apply-photo-->
+      <ion-col col-12 text-left><image-upload></image-upload></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer no-padding no-shadow no-border>
+  <ion-toolbar no-padding class="x-contest-apply-bottom">
+    <div class="x-contest-apply-btn" (click)="insertApply()">신청</div>
+  </ion-toolbar>
+</ion-footer>

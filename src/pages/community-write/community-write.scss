@@ -1,0 +1,106 @@
+page-community-write {
+    ion-content {
+        background-color:map-get($colors,x-gray-bg) !important;
+    }  
+    .x-boardwrite-top {
+        width:94vw;
+        height:10vw;
+        margin:3vw 0 0 3vw;
+    }
+    .x-boardwrite-category {
+        float:left;
+        width:fit-content;
+        height:fit-content;
+        font-size:3vw;
+        background-color:map-get($colors,x-white);
+        border:1px solid map-get($colors,x-input-line);
+        border-right:none;
+    }
+    .x-boardwrite-category-select {
+        width:18vw;
+        height:10vw;
+        font-size:3vw;
+        color:map-get($colors,x-gray-dark);
+        background-color:map-get($colors,x-white);
+        border:none;
+    }
+    .x-boardwrite-title {
+        float:left;
+        width:fit-content;
+        height:fit-content;
+        background-color:map-get($colors,x-white);
+        border:1px solid map-get($colors,x-input-line);
+    }
+    .x-boardwrite-title-input {
+        width:75vw;
+        height:10vw;
+        border:none;
+        font-size:3.5vw;
+        padding-top:3vw;
+        padding-left:2vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .x-boardwrite-title-input-full {
+        width:93.8vw;
+        height:10vw;
+        border:none;
+        font-size:3.5vw;
+        padding-top:3vw;
+        padding-left:2vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .x-boardwrite-center {
+        width:94vw;
+        height:fit-content;
+        margin:3vw;
+        background-color:map-get($colors,x-white);
+    }
+    .x-boardwrite-textarea {
+        width:94vw;
+        min-height:40vw;
+        padding:2vw;
+        font-size:3.5vw;
+        border:1px solid map-get($colors,x-input-line);
+        background-color:map-get($colors,x-white);
+    }
+    .x-boardwrite-photo {
+        width:94vw;
+        height:fit-content;
+        margin-left:3vw;
+    }
+    .x-boardwrite-tags {
+        float:left;
+        width:fit-content;
+        height:fit-content;
+        margin:3vw;
+        border:1px solid map-get($colors,x-input-line);
+    }
+    .x-boardwrite-tags-input {
+        width:94vw;
+        height:10vw;
+        border:none;
+        font-size:3.5vw;
+        padding-top:3vw;
+        padding-left:2vw;
+        background-color:map-get($colors,x-white);
+        color:map-get($colors,x-gray-dark);
+    }
+    .x-boardwrite-btn {
+        float:left;
+        width:fit-content;
+        height:fit-content;
+        border:1px solid map-get($colors,x-mint);
+        margin:0 3vw 0 3vw;
+    }
+    .x-boardwrite-submit {
+        width:94vw;
+        height:10vw;
+        color:map-get($colors,x-white);
+        font-size:3.5vw;
+        background-color:map-get($colors,x-mint);
+        box-shadow:none !important;
+        margin:0;
+        border-radius:0 !important;
+    }
+    
+}

@@ -1,0 +1,256 @@
+page-contest {
+    ion-content {
+        background-color:map-get($colors,x-gray-bg) !important;
+    }  
+    .contest-ad{
+        width:100vw;
+        height:fit-content;
+
+    }
+    .contest-ad-btn{
+        text-align:center; 
+        background-color:map-get($colors,x-gray-bg);
+        width:100vw;
+        padding:10vw;
+    }
+    .contest-ad-btn button{
+        background-color:map-get($colors,x-mint);
+        box-shadow:none;
+        color:map-get($colors,x-white);
+        font-size:4vw;
+        text-shadow:none;
+        border-radius:0;
+    }
+    .x-contest-top {
+        background-color:map-get($colors,x-mint);
+        padding-top:4vw !important;
+    }
+    .x-contest-icon {
+        color:map-get($colors,x-white);
+        font-size:6vw;
+        margin-top:5vw;
+    }
+    .x-contest-status {
+        margin:0 auto;
+        margin-top:4vw !important;
+        padding:1vw;
+        color:map-get($colors,x-white);
+        width:fit-content;
+        height: fit-content;
+        border-radius:1vw;
+        background-color:map-get($colors,x-mint-dark);
+        font-size:3vw;
+        margin-top:1vw;
+    }
+    .x-contest-title {
+        margin:0 auto;
+        color:map-get($colors,x-white);
+        font-size:6vw;
+        margin-top:1vw;
+    }
+
+    .x-contest-time {
+        margin:0 auto;
+        color:map-get($colors,x-mint-light);
+        font-size:3vw;
+        margin-top:1vw;
+        margin-bottom:5vw;
+    }
+    .x-contest-minicard-slider {
+        width:67vw !important;
+        height:38vw !important;
+    }
+    .x-contest-minicard {
+        width:fit-content;
+        height:fit-content;
+        background-color:map-get($colors,x-white);
+        border-left:3px solid map-get($colors,x-mint);
+        margin:3vw 0 3vw 3vw;
+    }
+    .x-contest-minicard-detail {
+        width:64vw;
+        height:32vw;
+    }
+    .x-contest-mini-profile {
+        float:left;
+        width:32vw;
+        height:32vw;
+        padding:2vw 2vw 2vw 0;;
+    }
+    .x-contest-mini-photo {
+        float:left;
+        width:32vw;
+        height:32vw;
+        padding:2vw;
+        object-fit: cover;
+    }
+    .x-contest-mini-num {
+        float:right;
+        width:fit-content;
+        height:fit-content;
+        padding:0.5vw;
+        font-size:2.5vw;
+        background-color:map-get($colors,x-mint);
+        border-radius:1vw;
+        color:map-get($colors,x-white);
+    }
+    .x-contest-mini-nickname {
+        margin-top:1vw;
+        float:right;
+        width:30vw;
+        text-align:right;
+        color:map-get($colors,x-gray-dark);
+        font-size:3.5vw;
+    }
+    .x-contest-mini-birth {
+        text-align:right;
+        float:right;
+        color:map-get($colors,x-gray-light);
+        font-size:2.5vw;
+    }
+    .x-contest-mini-time {
+        margin-top:4vw;
+        float:right;
+        width:30vw;
+        text-align:right;
+        color:map-get($colors,x-gray-light);
+        font-size:2.5vw;
+        border-bottom:1px solid map-get($colors,x-gray-bg);
+        padding-bottom:1vw;
+    }
+    .x-contest-mini-btn {
+        float:right;
+        margin-top:1.5vw;
+        text-align:center;
+        width:30vw;
+        background-color:map-get($colors,x-gray-bg);
+        color:map-get($colors,x-gray-dark);
+        font-size:2.5vw;
+        border-radius:1vw;
+        padding:1vw;
+    }
+    .segment-button.segment-activated{
+        background-color:map-get($colors,x-orange) !important;
+        color:map-get($colors,x-white)!important;
+        border:none !important;
+    }
+    .segment-button{
+        background-color:rgba(0,184,208,1.0) !important;
+        color:map-get($colors,x-mint-middle)!important;
+        border:none !important;
+    }
+    .x-contest-contents{
+        height:fit-content;
+        width:100vw;
+    }
+    .x-contest-ready-icon {
+        margin:0 auto;
+        text-align:center;
+        font-size:12vw;
+        color:map-get($colors,x-gray-light);
+        padding-top:15vw;
+        border:none;
+    }
+    .x-contest-ready-txt {
+        margin:0 auto;
+        text-align:center;
+        font-size:4vw;
+        color:map-get($colors,x-gray-light);
+        padding-top:3vw;
+        border:none;
+    }
+    .x-contest-apply {
+        margin:0 auto;
+        text-align:center;
+        font-size:4vw;
+        margin:5vw 30vw 5vw 30vw;
+        padding:2vw;
+        background-color: map-get($colors,x-mint);
+        border:1px solid map-get($colors,x-mint);
+        color:map-get($colors,x-white);
+        border-radius:1vw;
+    }
+    .x-contest-substage-content {
+        background-color:map-get($colors,x-white);
+    }
+    .x-contest-substage-match{
+        margin: 3vw 0 0 3vw;
+        width:94vw;
+        background-color:map-get($colors,x-gray-bg);
+        border-radius:1vw;
+        padding:2vw;
+        font-size:4vw;
+    }
+    .x-contest-substage-card{
+        float:left;
+        width:45.5vw;
+        height:fit-content;
+        border:1px solid map-get($colors,x-gray-bg);
+        background-color:map-get($colors,x-white);
+        margin-left:3vw;
+        margin-top:3vw;
+        margin-bottom:3vw;
+    }
+    .x-contest-substage-photo {
+        float:left;
+        padding:2vw;
+        img{
+            width:41.5vw;
+            height:41.5vw;
+            object-fit: cover;
+        }
+    }
+    .x-contest-substage-num{
+        float:left;
+        width:fit-content;
+        height:fit-content;
+        padding:0.5vw;
+        font-size:2.5vw;
+        background-color:map-get($colors,x-mint);
+        border-radius:1vw;
+        color:map-get($colors,x-white);
+        margin-left:2vw;
+    }
+    .x-contest-substage-nickname{
+        float:right;
+        width:fit-content;
+        height:fit-content;
+        color:map-get($colors,x-gray-dark);
+        font-size:3.5vw;
+        padding-right:2vw;
+    }
+    .x-contest-substage-birth {
+        text-align:right;
+        float:right;
+        width:45.5vw;
+        height:fit-content;
+        color:map-get($colors,x-gray-light);
+        font-size:2.5vw;
+        padding-right:2vw;
+    }
+    .x-contest-substage-hearts{
+        float:left;
+        width:41.5vw;
+        height:fit-content;
+        text-align:center;
+        font-size:4vw;
+        margin:2vw;
+        padding-top:2vw;
+        border-top:1px solid map-get($colors,x-gray-bg);
+        color:map-get($colors,x-mint);
+    }
+    .x-contest-substage-btn{
+        float:left;
+        width:29.5vw;
+        height:fit-content;
+        text-align:center;
+        font-size:2.5vw;
+        color:map-get($colors,x-gray-dark);
+        padding:1vw;
+        margin-left:8vw;
+        background-color:map-get($colors,x-gray-bg);
+        border-radius:1vw;
+        margin-bottom:2vw;
+    }
+    
+}

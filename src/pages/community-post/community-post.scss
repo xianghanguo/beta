@@ -1,0 +1,119 @@
+page-community-post {
+    .x-boardview-post {margin-bottom:3vw;}
+    .x-boardview-row {padding:2vw 3vw 2vw 3vw;height:fit-content;width:100vw;background-color:map-get($colors,x-white);border-bottom:1px solid map-get($colors,x-gray-bg);}
+    .x-boardview-row-no-border {padding:2vw 3vw 2vw 3vw;height:fit-content;width:100vw;background-color:map-get($colors,x-white);border-bottom:none;}
+    .x-boardview-category{font-size:4vw;color:map-get($colors,x-mint);}
+    .x-boardview-title {font-size:4vw;color:map-get($colors,x-gray-dark);}
+    .x-boardview-info {width:94vw;height:fit-content;}
+    .x-boardview-writer {float:left;width:fit-content;height:fit-content; img {width:13vw;height:13vw;border-radius:6.5vw;} margin-right:2vw;}
+    .x-boardview-nickname {float:left;width:78vw;height:fit-content;color:map-get($colors,x-gray-dark);font-size:3.5vw;margin-top:2vw;}
+    .x-boardview-modify {float:right;text-align:right;height:fit-content;color:map-get($colors,x-mint);font-size:3vw;margin-top:1vw;}
+    .x-boardview-time {float:left;width:39vw;height:fit-content;color:map-get($colors,x-gray-count);font-size:3vw;margin-top:1vw;}
+    .x-boardview-tags {float:left;width:39vw;height:fit-content;color:map-get($colors,x-gray-count);font-size:3vw;margin-top:1vw;text-align:right;}
+    .x-boardview-post-photo {width:94vw;height:fit-content;}
+    .x-boardview-post-description {width:94vw;height:fit-content;min-height:40vh;font-size:3.5vw;color:map-get($colors,x-gray-dark);padding-bottom:3vw;}
+    .x-boardview-cnt {width:94vw;height:fit-content;}
+    .x-boardview-ico {font-size:2.5vw;}
+    .x-boardview-view {float:left;width:46vw;height:fit-content;font-size:3vw;color:map-get($colors,x-gray-count);}
+    .x-boardview-like {float:right;width:fit-content;height:fit-content;font-size:3vw;color:map-get($colors,x-gray-count);text-align:right;}
+    .x-boardview-like-on {float:right;width:fit-content;height:fit-content;font-size:3vw;color:map-get($colors,x-mint);text-align:right;}
+    .x-boardview-comment {margin-bottom:3vw;}
+    .x-boardview-comment-ico {font-size:3vw;}
+    .x-boardview-comment-title {color:map-get($colors,x-gray-dark);font-size:3.5vw;}
+    .x-boardview-comment-like {float:right;width:fit-content;height:fit-content;font-size:3vw;color:map-get($colors,x-gray-count);text-align:right;margin-top:1.5vw;}
+    .x-boardview-comment-like-on {float:right;width:fit-content;height:fit-content;font-size:3vw;color:map-get($colors,x-mint);text-align:right;margin-top:1.5vw;}
+    .x-boardview-comment-description {
+        float:right;
+        width:79vw;
+        height:fit-content;
+        padding:3vw;
+        background-color:map-get($colors,x-gray-bg);
+        border-left:3px solid map-get($colors,x-gray-category);
+        font-size:3.5vw;
+        color:map-get($colors,x-gray-dark);
+        margin-top:1.5vw;
+    }
+
+    .x-boardview-comment-txt {
+        margin-left:3vw;
+        float:left;
+        width:82vw;
+        height:10vw;
+        padding:1.5vw;
+        border:1px solid map-get($colors,x-gray-bg);
+    }
+    .x-boardview-comment-input {
+        border:none;
+        height:8vw;
+        width:80vw;
+        padding:1vw;
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+        border-bottom: none !important;
+    }
+    .x-boardview-comment-btn {
+        float:left;
+        width:12vw;
+        height:10vw;
+    }
+    .x-boardview-comment-submit {
+        padding:0;
+        margin:0;
+        box-shadow:none;
+        width:12vw;
+        height:10vw;
+        border:1px solid map-get($colors,x-mint);
+        background-color: map-get($colors,x-mint);
+        color:map-get($colors,x-white);
+        text-align:center;
+        font-size:4vw;
+        border-radius:0;
+    }
+    
+    ion-content{
+        background-color: map-get($colors,x-gray-bg) !important;
+    }
+    ion-footer {
+        background-color: map-get($colors,x-white) !important;
+    }
+
+    ion-slides, .swiper-container {
+        height: auto;
+        width: 96vw;
+    }
+    .swiper-container {
+        margin: 2vw 2vw 2vw 2vw;
+    }
+    .swiper-slide {
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    #imageSlide{
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+    }
+
+    .swiper-pagination-bullet {
+        background-color: map-get($colors,x-white);
+    }
+    .swiper-pagination-bullet-active {
+        background-color: map-get($colors,x-mint) !important;
+    }
+
+    
+    .cdn-comment-input {
+        border-radius:4vw;
+        background-color: map-get($colors,x-white);
+        border:1px solid map-get($colors,x-gray-light2);
+        width:80vw;
+        height:8vw;
+        color:map-get($colors,x-gray-dark);
+        font-weight:normal;
+        font-size:4vw;
+        padding-top:2vw;
+        padding-left:4vw;
+        margin-left:4vw;
+    }
+}
+  

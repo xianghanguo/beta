@@ -1,0 +1,64 @@
+page-chat {
+    ion-content{
+        background-color:map-get($colors,x-gray-bg) !important;
+    }
+    .footer-md, .footer-ios{
+        border-top:1px solid map-get($colors,x-white) !important;
+        height:fit-content;
+    }
+    .message_grid{
+        margin:0 auto;
+        width:94vw;
+    }
+    .message-notice {
+        margin:0 auto;
+        width:88vw;
+        background-color:map-get($colors,x-white);
+        padding:2vw;
+        border-radius:1vw;
+        font-size:3.5vw;
+        margin-top:2vw;
+    }
+    .message-time-left {
+        width:68vw;
+        font-size:3vw;
+        margin-top:1vw;
+    }
+    .message-bubble-left {
+        background-color:map-get($colors,x-white);
+        padding:2vw;
+        border-radius:1vw;
+        width:fit-content;
+        height:fit-content;
+    }
+    .message-time-right {
+        float:right;
+        width:86vw;
+        font-size:3vw;
+        margin-top:1vw;
+        text-align:right;
+    }
+    .message-bubble-right {
+        float:right;
+        background-color:map-get($colors,x-white);
+        padding:2vw;
+        border-radius:1vw;
+        width:fit-content;
+        height:fit-content;
+    }
+    .photo-round {
+        border-radius: 50%;
+    }
+    .input_txt {
+        height:10vw;
+        padding:1vw;
+    }
+    .input_btn{
+        width:8vw;
+        height:8vw;
+        background-color: map-get($colors,x-mint);
+        color:map-get($colors,x-white);
+        box-shadow:none;
+        font-size:3vw;
+    }
+}

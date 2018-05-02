@@ -1,0 +1,12 @@
+page-note-request {
+    .x-note { margin-top:6vw; }
+    .x-note-row { height:8vw; font-size:3vw;color:map-get($colors,x-gray-category);align-items:center;}
+    .x-note-text-row { height:16vw;}
+    .x-note-input { border:1px solid map-get($colors,x-gray-category);height:10vw;margin:3vw;width:69vw;color:map-get($colors,x-gray-category);font-size:3vw;padding-top:2vw;}
+    .x-note-btn-row { height:fit-content; align-items:center;}
+    .x-note-btn { height:8vw; box-shadow:none!important;border:none!important;background-color:map-get($colors,x-chat);color:map-get($colors,x-white);font-size:3vw;margin:3vw 0 3vw 0;}
+    
+  }
+  
+  
+  

@@ -1,0 +1,53 @@
+page-heart-charge {
+    ion-content {
+        background-color:map-get($colors,x-white);
+    }
+    .hc-havings {
+        margin-top:6vw;
+        margin-bottom:2vw;
+        border-bottom:none !important;
+        height:10vw !important;
+        font-size:8vw;
+        color:map-get($colors,x-pink);
+    }
+    .hc-havings-count {
+        font-size:10vw;
+    }
+    .hc-havings-subtitle {
+        font-size:4vw;
+        height:6vw !important;
+        color:map-get($colors,x-gray-middle);
+    }
+    .hc-row-type {
+        background-color:map-get($colors,x-mint);
+        color:map-get($colors,x-white);
+        font-size:5vw;
+        height:6vh !important;
+    }
+    .hc-row-detail {
+        font-size:4.5vw;
+        color:map-get($colors,x-gray-middle);
+        border-bottom:1px solid map-get($colors,x-gray-light) !important;
+    }
+    .hc-btn-buy {
+        border-radius:2vw !important;
+        border:1px solid map-get($colors,x-pink) !important;
+        box-shadow : none !important;
+        color:map-get($colors,x-pink) !important;
+        font-size:4vw !important;
+        width:20vw !important;
+        height:4vh !important;
+        padding:0 !important;
+        margin:0 !important;
+    }
+    ion-grid {
+        margin-bottom:4vw;
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:8vh;
+        background-color: map-get($colors,x-white);
+    }
+
+}
